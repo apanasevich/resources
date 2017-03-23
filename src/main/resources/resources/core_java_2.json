@@ -1,5 +1,5 @@
 {
   "name": "Core Java 2",
-  "authors": ["/resources/horstmann.json","/resources/cornell.json"],
-  "publisher": "/resources/sun.json"
+  "authors": [{"ref": "/resources/horstmann.json"}, {"ref": "/resources/cornell.json"}],
+  "publisher": {"ref": "/resources/sun.json"}
 }

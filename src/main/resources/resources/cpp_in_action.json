@@ -1,5 +1,5 @@
 {
   "name": "C++ Concurrency in Action",
-  "authors": ["/resources/williams.json"],
-  "publisher": "/resources/manning.json"
+  "authors": [{"ref": "/resources/williams.json"}],
+  "publisher": {"ref": "/resources/manning.json"}
 }
