@@ -1,21 +1,18 @@
 package examples;
 
 import com.google.gson.*;
+import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
-import java.net.URISyntaxException;
 
-public final class ResourceRefDeserializer implements JsonDeserializer<ResourceRef<Object>> {
-    public ResourceRef<Object> deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+public final class ResourceRefDeserializer implements JsonDeserializer<ResourceRef<Resource>> {
+    @Override
+    @NotNull
+    public ResourceRef<Resource> deserialize(@NotNull JsonElement jsonElement,
+                                             @NotNull Type type,
+                                             @NotNull JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         final JsonObject jsonObject = jsonElement.getAsJsonObject();
         final String ref = jsonObject.get("ref").getAsString();
-        try {
-            return new ResourceRef<Object>(ref);
-        } catch (IOException e) {
-            throw new JsonParseException(e);
-        } catch (URISyntaxException e) {
-            throw new JsonParseException(e);
-        }
+        return new ResourceRef<Resource>(ref);
     }
 }

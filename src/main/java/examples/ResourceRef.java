@@ -1,21 +1,25 @@
 package examples;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public final class ResourceRef<T> {
+public final class ResourceRef<T extends Resource> {
+    @NotNull
     private final String ref;
+    @Nullable
     private final transient T instance;
 
-    public ResourceRef(String ref) throws IOException, URISyntaxException {
+    public ResourceRef(@NotNull String ref) {
         this.ref = ref;
-        instance = (T) ClassIndex.gson.fromJson(ClassIndex.getResource(ref), ClassIndex.index.get(ref));
+        instance = (T) ClassIndex.getResource(ref);
     }
 
+    @NotNull
     public String getRef() {
         return ref;
     }
 
+    @Nullable
     public T getInstance() {
         return instance;
     }

@@ -1,3 +1,4 @@
 {
-  "name": "Sun"
+  "name": "Sun",
+  "country": {"ref": "/resources/usa.json"}
 }
