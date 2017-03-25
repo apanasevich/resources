@@ -13,6 +13,6 @@ public final class ResourceRefDeserializer implements JsonDeserializer<ResourceR
                                              @NotNull JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         final JsonObject jsonObject = jsonElement.getAsJsonObject();
         final String ref = jsonObject.get("ref").getAsString();
-        return new ResourceRef<Resource>(ref);
+        return new ResourceRef<>(ref);
     }
 }
