@@ -21,8 +21,9 @@ public final class TestInjector {
 
     @Test
     public void countriesAreEqual() {
-        final CppInAction cppInAction = injector.getInstance(CppInAction.class);
-        final CoreJava2 coreJava2 = injector.getInstance(CoreJava2.class);
-        assertEquals(cppInAction.getBook().getPublisher().getInstance().getCountry().getInstance(), coreJava2.getBook().getPublisher().getInstance().getCountry().getInstance());
+        final CppInAction cppInAction = CppInAction.get();
+        final CoreJava2 coreJava2 = CoreJava2.get();
+        assertEquals(cppInAction.getBook().getPublisher().getInstance().getCountry().getInstance(),
+                coreJava2.getBook().getPublisher().getInstance().getCountry().getInstance());
     }
 }
