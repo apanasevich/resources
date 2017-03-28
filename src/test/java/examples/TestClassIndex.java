@@ -1,7 +1,5 @@
 package examples;
 
-import examples.resources.Book;
-import examples.resources.Country;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -15,11 +13,9 @@ public final class TestClassIndex {
 
     @Test
     public void countriesAreEqual() {
-        final Book coreJava2 = ClassIndex.getResource("/resources/core_java_2.json", Book.class);
-        final Book cppInAction = ClassIndex.getResource("/resources/cpp_in_action.json", Book.class);
-        final Country country = ClassIndex.getResource("/resources/usa.json", Country.class);
-
-        assertEquals(country, coreJava2.getPublisher().getInstance().getCountry().getInstance());
-        assertEquals(country, cppInAction.getPublisher().getInstance().getCountry().getInstance());
+        final CppInAction cppInAction = CppInAction.get();
+        final CoreJava2 coreJava2 = CoreJava2.get();
+        assertEquals(cppInAction.getBook().getPublisher().getInstance().getCountry().getInstance(),
+                coreJava2.getBook().getPublisher().getInstance().getCountry().getInstance());
     }
 }

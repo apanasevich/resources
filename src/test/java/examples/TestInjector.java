@@ -2,9 +2,7 @@ package examples;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import examples.resources.Book;
 import org.jetbrains.annotations.NotNull;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -21,8 +19,8 @@ public final class TestInjector {
 
     @Test
     public void countriesAreEqual() {
-        final CppInAction cppInAction = CppInAction.get();
-        final CoreJava2 coreJava2 = CoreJava2.get();
+        final CppInAction cppInAction = injector.getInstance(CppInAction.class);
+        final CoreJava2 coreJava2 = injector.getInstance(CoreJava2.class);
         assertEquals(cppInAction.getBook().getPublisher().getInstance().getCountry().getInstance(),
                 coreJava2.getBook().getPublisher().getInstance().getCountry().getInstance());
     }
