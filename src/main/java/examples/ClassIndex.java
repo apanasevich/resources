@@ -42,6 +42,7 @@ public enum ClassIndex {
     private static final Map<String, Resource> instances = new ConcurrentHashMap<>();
     private static final int THREAD_POOL_SIZE = 3;
 
+    @SuppressWarnings("unchecked")
     @Nullable
     public static <T extends Resource> T getResource(@NotNull String resourcePath, @NotNull Class<T> clazz) {
         return (T) instances.computeIfAbsent(resourcePath, (file) -> gson.fromJson(getResourceAsString(file), clazz));
